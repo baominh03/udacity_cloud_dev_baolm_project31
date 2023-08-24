@@ -16,7 +16,7 @@ before_script:
 # Use either `docker-compose` or individual `docker build` commands
 # Build
 script:
-  - docker build -t reverseproxy ./reverseproxy
+  - docker build -t reverseproxy ./udagram-reverseproxy
   - docker tag reverseproxy minhbao03/reverseproxy:v1
   - docker build -t udagram-frontend ./udagram-frontend
   - docker tag udagram-frontend minhbao03/udagram-frontend:v1
