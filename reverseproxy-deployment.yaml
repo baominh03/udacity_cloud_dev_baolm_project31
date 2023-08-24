@@ -16,8 +16,10 @@ spec:
     spec:
       containers:
       - name: reverseproxy
-        image: minhbao03/reverseproxy:v1
-        imagePullPolicy: Always          
+        image: minhbao03/reverseproxy:v1 
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: "Always"       
         resources:
           requests:
             memory: "64Mi"
@@ -25,5 +27,3 @@ spec:
           limits:
             memory: "1024Mi"
             cpu: "500m"       
-        ports:
-        - containerPort: 8080
