@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: udagram-api-user
   labels:
-    app: udgram-api-user
-  name: udgram-api-user
+    app: udagram-api-user
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-api-user
@@ -15,18 +15,11 @@ spec:
         app: udagram-api-user
     spec:
       containers:
-      - image: minhbao03/udagram-api-user:v1
-        name: udagram-api-user
-        imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits: 
-            memory: "1024Mi"
-            cpu: "500m"  
+      - name: udagram-api-user
+        image: minhbao03/udagram-api-user:v1
         ports:
         - containerPort: 8080
+        imagePullPolicy: "Always"
         env:
           - name: POSTGRES_HOST
             valueFrom:

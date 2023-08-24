@@ -1,10 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: udgram-api-user
+  name: udagram-api-user
   labels:
-    run: udgram-api-user
-  namespace: default
+    app: udagram-api-user
 spec:
   ports:
   - port: 8080
@@ -12,8 +11,4 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    run: udgram-api-user
-  sessionAffinity: None
-  type: ClusterIP
-status:
-  loadBalancer: {}
+    app: udagram-api-user
