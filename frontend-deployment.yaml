@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: udagram-frontend
   labels:
     app: udagram-frontend
-  name: udagram-frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-frontend
@@ -15,15 +15,7 @@ spec:
         app: udagram-frontend
     spec:
       containers:
-      - image: minhbao03/udagram-frontend:v1
-        name: udagram-frontend
-        imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "1024Mi"
-            cpu: "500m"   
+      - name: udagram-frontend
+        image: minhbao03/udagram-frontend:v1
         ports:
-        - containerPort: 8100
+        - containerPort: 80
